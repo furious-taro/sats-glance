@@ -112,4 +112,15 @@ describe('App controller', () => {
     expect(app.demo).toBe(false);
     expect(buildView(app.model()).body).toMatch(/No address to watch yet/);
   });
+
+  it('the demo holds its final state for a minute, then returns to live data by itself', async () => {
+    vi.useFakeTimers();
+    const app = new App(memoryKV(), fakeApi({ tip: 1, addressTxs: [] }).fn);
+    await app.load();
+    app.startDemo();
+    await vi.advanceTimersByTimeAsync(44_000 + 59_000);
+    expect(app.demo).toBe(true);
+    await vi.advanceTimersByTimeAsync(2_000);
+    expect(app.demo).toBe(false);
+  });
 });

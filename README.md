@@ -57,8 +57,8 @@ xprv or seed phrase is refused and wiped from the form.
 
 A scripted, clearly labelled (`DEMO` in the header) sequence that runs through the same state machine as live data:
 a 25,000-sat payment appears in the mempool, gets 1, 2, 3 confirmations and settles; an RBF-flagged 4,100-sat
-tip appears and is then replaced (shown as dropped); a 120,000-sat payment arrives and confirms. It takes 44 s
-and ends itself 15 s later. Fee and price pages keep showing live data during the demo. Start it by tapping on
+tip appears and is then replaced (shown as dropped); a 120,000-sat payment arrives and confirms. The script takes 44 s;
+the final state stays on screen for another 60 s, then live data returns (or stop it earlier from the menu). Fee and price pages keep showing live data during the demo. Start it by tapping on
 the first-run screen, from the contextual menu, or with the phone-side button.
 
 ## Run it
@@ -145,7 +145,7 @@ Design choices:
 
 | Check | Status |
 | --- | --- |
-| Unit tests (`npm test`) | 9 files, 121 tests passing: parsers on captured real API responses, state machine, formatting, pixel-fit of every page with the firmware font metrics, input mapping, SDK page validation (`validateEvenHubPageContainer`), renderer diffing, demo script, controller with a fake API |
+| Unit tests (`npm test`) | 9 files, 122 tests passing: parsers on captured real API responses, state machine, formatting, pixel-fit of every page with the firmware font metrics, input mapping, SDK page validation (`validateEvenHubPageContainer`), renderer diffing, demo script, controller with a fake API |
 | `tsc --noEmit` (strict, SDK typings checked) | clean |
 | `vite build` | clean (≈235 kB JS, 74 kB gzipped) |
 | `evenhub pack` (CLI 0.2.0, `--sdk-ver 0.0.16`) | produces an 82 kB `.ehpk`, `min_app_version` 2.2.10 |

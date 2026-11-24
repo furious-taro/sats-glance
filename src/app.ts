@@ -17,6 +17,8 @@ export const POLL_PRICE_MS = 60_000;
 const TICK_MS = 5_000;
 const BANNER_MS = 8_000;
 const FLASH_MS = 3_000;
+/** The final demo state stays on screen this long before live data returns. */
+export const DEMO_HOLD_MS = 60_000;
 
 const CONFIG_KEY = 'sg.config';
 const paymentsKey = (c: Config) => `sg.payments.${c.network}`;
@@ -265,7 +267,7 @@ export class App {
         }, step.at),
       );
     }
-    this.demoTimers.push(setTimeout(() => this.stopDemo(true), DEMO_DURATION_MS + 15_000));
+    this.demoTimers.push(setTimeout(() => this.stopDemo(true), DEMO_DURATION_MS + DEMO_HOLD_MS));
     this.emit();
   }
 
