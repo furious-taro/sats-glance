@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="576" height="314" viewBox="0 0 576 314" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif" font-size="19">
+<rect width="576" height="288" fill="#000"/>
+<text y="24" x="4.0 24.0 44.0 74.0 87.0 99.0 104.0 115.0 469.0 482.0 492.0 507.0 517.0 529.0 536.0 540.0 553.0" fill="#3dff6e" fill-opacity="1">○○●PRICEBTC·21:45</text>
+<rect x="0.5" y="36.5" width="575" height="215" rx="6" fill="none" stroke="#3dff6e" stroke-opacity="0.5" stroke-width="1"/>
+<text y="61" x="5.0 19.0 32.0 42.0 57.0 72.0 85.0 97.0 109.0 114.0 126.0 137.0" fill="#3dff6e" fill-opacity="1">1BTC=$59,827</text>
+<text y="88" x="5.0 13.0 18.0 30.0 42.0 59.0 69.0 80.0 86.0 101.0 116.0 129.0 141.0 146.0 158.0" fill="#3dff6e" fill-opacity="1">1,000sats=$0.60</text>
+<text y="115" x="5.0 18.0 31.0 46.0 53.0 58.0 70.0 82.0 95.0 105.0 116.0 122.0" fill="#3dff6e" fill-opacity="1">$1=1,671sats</text>
+<text y="142" x="5.0 18.0 25.0 42.0 57.0 64.0 76.0 81.0 93.0 100.0 117.0 127.0 138.0 144.0" fill="#3dff6e" fill-opacity="1">$10=16,715sats</text>
+<text y="169" x="5.0 18.0 25.0 37.0 54.0 69.0 76.0 88.0 100.0 104.0 111.0 123.0 139.0 149.0 160.0 166.0" fill="#3dff6e" fill-opacity="1">$100=167,149sats</text>
+<text y="196" x="5.0 17.0 29.0 39.0 46.0 61.0 68.0 89.0 100.0 104.0 121.0 131.0 147.0 157.0 173.0 184.0 194.0 204.0 208.0 213.0 224.0 234.0 245.0 255.0" fill="#3dff6e" fill-opacity="1">Quote1mold·mempool.space</text>
+<text y="276" x="4.0 16.0 31.0 34.0 45.0 55.0 64.0 76.0 87.0 97.0 108.0 128.0 143.0 156.0 167.0 171.0 182.0 191.0 199.0 208.0 217.0 223.0 232.0 242.0 262.0 277.0 288.0 297.0 307.0 317.0 328.0 337.0 348.0 359.0 363.0" fill="#3dff6e" fill-opacity="0.6">Swipe:pages·Hold:refresh·Tap×2:exit</text>
+<rect y="288" width="576" height="26" fill="#111"/>
+<text x="6" y="306" fill="#999" font-size="13">Mock render of the 576x288 G2 canvas (firmware font metrics) | Price page</text>
+</svg>

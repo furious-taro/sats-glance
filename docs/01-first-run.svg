@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="576" height="314" viewBox="0 0 576 314" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif" font-size="19">
+<rect width="576" height="288" fill="#000"/>
+<text y="24" x="4.0 24.0 44.0 74.0 87.0 99.0 110.0 125.0 136.0 147.0 158.0 473.0 486.0 496.0 511.0 521.0 533.0 540.0 544.0 557.0" fill="#3dff6e" fill-opacity="1">●○○PAYMENTSBTC·21:45</text>
+<rect x="0.5" y="36.5" width="575" height="215" rx="6" fill="none" stroke="#3dff6e" stroke-opacity="0.5" stroke-width="1"/>
+<text y="61" x="5.0 17.0 33.0 45.0 55.0 66.0 74.0 83.0 93.0 108.0 116.0 131.0 146.0 156.0 162.0 172.0 187.0 199.0 209.0 216.0" fill="#3dff6e" fill-opacity="1">Noaddresstowatchyet.</text>
+<text y="88" x="5.0 17.0 33.0 45.0 55.0 67.0 77.0 89.0 100.0 110.0 121.0 131.0 141.0 152.0 163.0 173.0 189.0 201.0 212.0 218.0 233.0 246.0 250.0 261.0 271.0 281.0 296.0 308.0 318.0" fill="#3dff6e" fill-opacity="1">Onyourphone,openSatsGlanceand</text>
+<text y="115" x="5.0 16.0 27.0 37.0 44.0 59.0 75.0 87.0 99.0 109.0 113.0 117.0 133.0 141.0 155.0 165.0 171.0 181.0 191.0 201.0 212.0 223.0 227.0 238.0 248.0 260.0 270.0 281.0 289.0 298.0 308.0 318.0" fill="#3dff6e" fill-opacity="1">pasteapublic(watch-only)address.</text>
+<text y="142" x="5.0 17.0 33.0 44.0 54.0 65.0 75.0 85.0 96.0 111.0 121.0 125.0 136.0 147.0 157.0 169.0 179.0 189.0 197.0 206.0 217.0 227.0 237.0 248.0 259.0 263.0 274.0" fill="#3dff6e" fill-opacity="1">Nokeys,nosign-up,read-only.</text>
+<text y="196" x="5.0 30.0 41.0 50.0 65.0 76.0 86.0 106.0 114.0 129.0 137.0 148.0 163.0 171.0 181.0 196.0 207.0 218.0 234.0 244.0" fill="#3dff6e" fill-opacity="1">▶Tapnowtorunthedemo.</text>
+<text y="276" x="4.0 16.0 25.0 35.0 44.0 56.0 66.0 79.0 109.0 124.0 137.0 148.0 152.0 163.0 172.0 180.0 189.0 198.0 204.0 213.0 223.0 243.0 258.0 270.0 285.0 288.0 299.0 309.0 318.0 330.0 341.0 351.0 362.0" fill="#3dff6e" fill-opacity="0.6">Tap:ack★·Hold:refresh·Swipe:pages</text>
+<rect y="288" width="576" height="26" fill="#111"/>
+<text x="6" y="306" fill="#999" font-size="13">Mock render of the 576x288 G2 canvas (firmware font metrics) | First run: no address yet (never a blank screen)</text>
+</svg>

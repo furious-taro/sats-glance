@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="576" height="314" viewBox="0 0 576 314" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif" font-size="19">
+<rect width="576" height="288" fill="#000"/>
+<text y="24" x="4.0 24.0 44.0 74.0 86.0 96.0 106.0 472.0 485.0 495.0 510.0 520.0 532.0 539.0 543.0 556.0" fill="#3dff6e" fill-opacity="1">○●○FEESBTC·21:45</text>
+<rect x="0.5" y="36.5" width="575" height="215" rx="6" fill="none" stroke="#3dff6e" stroke-opacity="0.5" stroke-width="1"/>
+<text y="61" x="5.0 16.0 25.0 35.0 42.0 52.0 62.0 123.0 136.0 146.0 157.0 163.0 170.0 180.0 251.0 267.0 278.0 288.0 299.0 310.0 322.0 326.0 337.0 347.0" fill="#3dff6e" fill-opacity="1">Fastest1sat/vB~nextblock</text>
+<text y="88" x="5.0 17.0 34.0 50.0 54.0 125.0 138.0 148.0 159.0 165.0 172.0 182.0" fill="#3dff6e" fill-opacity="1">30min1sat/vB</text>
+<text y="115" x="5.0 19.0 31.0 41.0 53.0 123.0 136.0 146.0 157.0 163.0 170.0 180.0" fill="#3dff6e" fill-opacity="1">1hour1sat/vB</text>
+<text y="142" x="5.0 16.0 26.0 36.0 47.0 57.0 73.0 124.0 137.0 147.0 158.0 164.0 171.0 181.0" fill="#3dff6e" fill-opacity="1">Economy1sat/vB</text>
+<text y="169" x="5.0 17.0 27.0 38.0 54.0 65.0 75.0 95.0 112.0 125.0 137.0 142.0 154.0 171.0 179.0 186.0 198.0 210.0 221.0 237.0 245.0 256.0" fill="#3dff6e" fill-opacity="1">Sendnow≈$0.08(141vBtx)</text>
+<text y="196" x="5.0 17.0 21.0 32.0 42.0 55.0 68.0 80.0 92.0 96.0 109.0 120.0 137.0 147.0 163.0 167.0 178.0 188.0 204.0 217.0 237.0 249.0 259.0" fill="#3dff6e" fill-opacity="1">Block977,420·mined4mago</text>
+<text y="223" x="5.0 19.0 29.0 44.0 56.0 60.0 71.0 81.0 94.0 102.0 105.0 121.0 136.0 149.0 154.0 171.0 187.0 191.0" fill="#3dff6e" fill-opacity="1">Avgblocktime9.2min</text>
+<text y="276" x="4.0 16.0 31.0 34.0 45.0 55.0 64.0 76.0 87.0 97.0 108.0 128.0 143.0 156.0 167.0 171.0 182.0 191.0 199.0 208.0 217.0 223.0 232.0 242.0 262.0 277.0 288.0 297.0 307.0 317.0 328.0 337.0 348.0 359.0 363.0" fill="#3dff6e" fill-opacity="0.6">Swipe:pages·Hold:refresh·Tap×2:exit</text>
+<rect y="288" width="576" height="26" fill="#111"/>
+<text x="6" y="306" fill="#999" font-size="13">Mock render of the 576x288 G2 canvas (firmware font metrics) | Fees page (live data captured from mempool.space)</text>
+</svg>

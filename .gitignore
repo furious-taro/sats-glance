@@ -1,0 +1,6 @@
+node_modules/
+dist/
+build-scripts/
+*.ehpk
+*.log
+.DS_Store

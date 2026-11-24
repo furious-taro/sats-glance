@@ -1,0 +1,16 @@
+{
+  "package_id": "io.github.furioustaro.satsglance",
+  "edition": "202601",
+  "name": "Sats Glance",
+  "version": "0.1.0",
+  "min_sdk_version": "0.0.16",
+  "entrypoint": "index.html",
+  "permissions": [
+    {
+      "name": "network",
+      "desc": "Reads public Bitcoin fee rates, block height, BTC price and the transactions of the watch-only addresses you enter, from the public mempool.space API. Read-only; no keys.",
+      "whitelist": ["https://mempool.space", "wss://mempool.space"]
+    }
+  ],
+  "supported_languages": ["en"]
+}
