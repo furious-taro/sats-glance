@@ -55,7 +55,12 @@ export function mapEvent(e: EvenHubEvent): Action {
   if (e.menuItemClickEvent?.itemID !== undefined) return { type: 'menu', id: e.menuItemClickEvent.itemID };
   if (e.textEvent) return gesture(e.textEvent.eventType, true);
   if (e.listEvent) return gesture(e.listEvent.eventType, true);
-  if (e.sysEvent && !e.sysEvent.imuData) return gesture(e.sysEvent.eventType, false);
+  if (e.sysEvent && !e.sysEvent.imuData) {
+    // A tap on the touchpad/ring arrives as a sysEvent that carries its input source but no
+    // eventType (CLICK = 0 is dropped in transit). Seen in evenhub-simulator: {"eventSource":1}.
+    const fromInput = e.sysEvent.eventSource !== undefined && e.sysEvent.eventSource !== null;
+    return gesture(e.sysEvent.eventType, fromInput);
+  }
   return { type: 'none' };
 }
 

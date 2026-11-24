@@ -36,6 +36,12 @@ describe('mapEvent', () => {
     const lp = evenHubEventFromJson({ type: 'sysEvent', jsonData: { eventType: 9 } });
     expect(mapEvent(lp)).toEqual({ type: 'refresh' });
   });
+
+  it('maps a touchpad tap that arrives as a typeless sysEvent with an input source (evenhub-simulator)', () => {
+    // Exact payload logged by the simulator for a Click: {"jsonData":{"eventSource":1},"sysEvent":{"eventSource":1}}
+    const tap = evenHubEventFromJson({ type: 'sysEvent', jsonData: { eventSource: 1 } });
+    expect(mapEvent(tap)).toEqual({ type: 'tap' });
+  });
 });
 
 describe('createDeduper', () => {

@@ -10,16 +10,15 @@ Sats Glance is read-only. It never asks for, stores or sends a private key, and 
 Data comes from the public [mempool.space](https://mempool.space) API: no API key, no account, no tracking.
 
 <p>
-<img src="docs/02-new-payment.svg" width="49%" alt="New payment banner on the G2 display">
-<img src="docs/03-confirming.svg" width="49%" alt="Payments page with confirmations and an RBF warning">
-<img src="docs/05-fees.svg" width="49%" alt="Fees page">
-<img src="docs/06-price.svg" width="49%" alt="Price page">
+<img src="docs/sim-1-new-payment.png" width="49%" alt="New payment banner on the G2 display">
+<img src="docs/sim-2-confirming-rbf.png" width="49%" alt="Payments page with confirmations and an RBF warning">
+<img src="docs/sim-4-fees.png" width="49%" alt="Fees page">
+<img src="docs/sim-5-price.png" width="49%" alt="Price page">
 </p>
 
-> The images above are **mock renders, not simulator screenshots**. `npm run mocks` draws the app's real
-> view output onto a 576x288 canvas, placing every glyph at the pixel position given by the G2 firmware
-> font metrics (`@evenrealities/pretext`). Layout and alignment match; glyph shapes come from a stand-in font.
-> See also [first run](docs/01-first-run.svg) and [settled / replaced](docs/04-settled-dropped.svg).
+> Screenshots from the official Even Hub simulator (`evenhub-simulator --automation-port`), demo mode,
+> captured 2026-11-24. Fees and price are live mempool.space data. See also [first run](docs/sim-0-first-run.png)
+> and [replaced payment](docs/sim-3-dropped.png). The older mock renders (`npm run mocks`) are kept in `docs/*.svg`.
 
 ## What it does
 
