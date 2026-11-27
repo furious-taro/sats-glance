@@ -31,6 +31,11 @@ export interface PaymentsState {
   payments: Record<string, Payment>;
   /** Addresses that have had at least one full snapshot (history baseline taken). */
   baselined: string[];
+  /**
+   * Per address: the newest block height known when its baseline was taken. A tx confirmed at or
+   * below it that we no longer hold is old history dropped by prune(), not a new payment.
+   */
+  baselineHeight?: Record<string, number>;
 }
 
 export type Change =
@@ -53,7 +58,7 @@ export const MAX_PAYMENTS = 20;
 const DROP_AFTER_MISSING = 2;
 
 export function initialPayments(): PaymentsState {
-  return { tipHeight: 0, payments: {}, baselined: [] };
+  return { tipHeight: 0, payments: {}, baselined: [], baselineHeight: {} };
 }
 
 export function statusFor(confs: number, settleConfs: number): PaymentStatus {
@@ -110,12 +115,16 @@ export function reducePayments(
       return { state: { ...s, tipHeight: e.height, payments }, changes };
     }
     case 'snapshot': {
-      const isBaseline = !s.baselined.includes(e.address);
+      const historyHeight = s.baselineHeight?.[e.address];
+      // A state saved before baselineHeight existed takes its baseline again.
+      const isBaseline = !s.baselined.includes(e.address) || historyHeight === undefined;
       const payments = { ...s.payments };
       const seen = new Set<string>();
       for (const [i, o] of e.observations.entries()) {
         seen.add(o.txid);
         const prev = payments[o.txid];
+        // Already-known history that prune() dropped: the listing returns more txs than we keep.
+        if (!prev && !isBaseline && o.blockHeight !== null && o.blockHeight <= historyHeight!) continue;
         if (!prev) {
           const confs = confirmations(o.blockHeight, s.tipHeight);
           const p: Payment = {
@@ -155,8 +164,13 @@ export function reducePayments(
           payments[p.txid] = { ...p, missing };
         }
       }
-      const baselined = isBaseline ? [...s.baselined, e.address] : s.baselined;
-      return { state: { ...s, payments: prune(payments), baselined }, changes };
+      const baselined = isBaseline && !s.baselined.includes(e.address) ? [...s.baselined, e.address] : s.baselined;
+      let baselineHeight = s.baselineHeight ?? {};
+      if (isBaseline) {
+        const mined = e.observations.map((o) => o.blockHeight ?? 0);
+        baselineHeight = { ...baselineHeight, [e.address]: Math.max(s.tipHeight, ...mined) };
+      }
+      return { state: { ...s, payments: prune(payments), baselined, baselineHeight }, changes };
     }
     case 'ack': {
       const target = e.txid ? s.payments[e.txid] : newestUnacked(s);
@@ -172,7 +186,9 @@ export function reducePayments(
       const keep = new Set(e.addresses);
       const payments: Record<string, Payment> = {};
       for (const p of Object.values(s.payments)) if (keep.has(p.address)) payments[p.txid] = p;
-      return { state: { ...s, payments, baselined: s.baselined.filter((a) => keep.has(a)) }, changes };
+      const baselineHeight: Record<string, number> = {};
+      for (const [a, h] of Object.entries(s.baselineHeight ?? {})) if (keep.has(a)) baselineHeight[a] = h;
+      return { state: { ...s, payments, baselined: s.baselined.filter((a) => keep.has(a)), baselineHeight }, changes };
     }
   }
 }

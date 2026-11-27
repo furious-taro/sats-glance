@@ -110,6 +110,29 @@ describe('payment state machine', () => {
     expect(Object.keys(s.payments)).toHaveLength(MAX_PAYMENTS);
   });
 
+  it('does not announce pruned history again when the listing returns more than it keeps', () => {
+    const many = Array.from({ length: 30 }, (_, i) => obs(i + 1, i + 1, 90 - i));
+    let { s } = run(initialPayments(), { type: 'tip', height: 100 }, { type: 'snapshot', address: ADDR, observations: many, now: 1000 });
+    const again = run(s, { type: 'snapshot', address: ADDR, observations: many, now: 2000 }, { type: 'snapshot', address: ADDR, observations: many, now: 3000 });
+    expect(again.changes).toEqual([]);
+    expect(newestUnacked(again.s)).toBeUndefined();
+    expect(Object.keys(again.s.payments)).toHaveLength(MAX_PAYMENTS);
+    // A payment that arrives already mined after the baseline is still news.
+    s = run(again.s, { type: 'tip', height: 101 }, { type: 'snapshot', address: ADDR, observations: [obs(77, 9, 101), ...many], now: 4000 }).s;
+    expect(s.payments[txid(77)]).toMatchObject({ acked: false, status: 'confirming' });
+    expect(newestUnacked(s)?.txid).toBe(txid(77));
+  });
+
+  it('takes a new baseline for a state saved before baseline heights were kept', () => {
+    const many = Array.from({ length: 30 }, (_, i) => obs(i + 1, i + 1, 90 - i));
+    const first = run(initialPayments(), { type: 'tip', height: 100 }, { type: 'snapshot', address: ADDR, observations: many, now: 1000 }).s;
+    const legacy: PaymentsState = { tipHeight: first.tipHeight, payments: first.payments, baselined: first.baselined };
+    const { s, changes } = run(legacy, { type: 'snapshot', address: ADDR, observations: many, now: 2000 });
+    expect(changes).toEqual([]);
+    expect(s.baselined).toEqual([ADDR]);
+    expect(s.baselineHeight).toEqual({ [ADDR]: 100 });
+  });
+
   it('retain forgets addresses that are no longer watched', () => {
     const { s } = run(base(), { type: 'snapshot', address: ADDR, observations: [obs(1, 1, null)], now: 1 }, { type: 'retain', addresses: [] });
     expect(s.payments).toEqual({});
