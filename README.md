@@ -9,6 +9,13 @@ then `settled`. Tap the temple (or the R1 ring) to acknowledge it. Swipe for the
 Sats Glance is read-only. It never asks for, stores or sends a private key, and it cannot move funds.
 Data comes from the public [mempool.space](https://mempool.space) API: no API key, no account, no tracking.
 
+**Demo video (2:08, captions, no audio):** [demo.mp4](https://github.com/furious-taro/sats-glance/releases/download/v0.1.1/demo.mp4),
+recorded in the official Even Hub simulator through its automation API.
+
+**Built for the Heads Up: Even Realities hackathon (Nov 23-29, 2026).** All code in this repository was written
+during the hackathon (first commit 2026-11-24). Nothing existed before Nov 23 except the open-source libraries
+it uses (Even Hub SDK, @evenrealities/pretext, Vite, Vitest, TypeScript) and the public mempool.space API.
+
 <p>
 <img src="docs/sim-1-new-payment.png" width="49%" alt="New payment banner on the G2 display">
 <img src="docs/sim-2-confirming-rbf.png" width="49%" alt="Payments page with confirmations and an RBF warning">
